@@ -18,6 +18,7 @@ public class EventTest {
 
     @Test
     public void javaBean(){
+
             Event event = new Event();
             String name = "test";
             String des = "rest";
