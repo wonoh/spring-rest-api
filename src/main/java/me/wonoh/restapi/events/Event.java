@@ -25,5 +25,25 @@ public class Event {
     private boolean offline;
     private boolean free;
     @Enumerated(EnumType.STRING)
-    private EventStatus eventStatus;
+    private EventStatus eventStatus = EventStatus.DRAFT;
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", beginEnrollmentDateTime=" + beginEnrollmentDateTime +
+                ", closeEnrollmentDateTime=" + closeEnrollmentDateTime +
+                ", beginEventDateTime=" + beginEventDateTime +
+                ", endEventDateTime=" + endEventDateTime +
+                ", location='" + location + '\'' +
+                ", basePrice=" + basePrice +
+                ", maxPrice=" + maxPrice +
+                ", limitOfEnrollment=" + limitOfEnrollment +
+                ", offline=" + offline +
+                ", free=" + free +
+                ", eventStatus=" + eventStatus +
+                '}';
+    }
 }
