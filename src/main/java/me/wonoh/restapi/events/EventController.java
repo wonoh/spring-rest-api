@@ -23,7 +23,8 @@ public class EventController {
     EventRepository eventRepository;
     @Autowired
     ModelMapper modelMapper;
-
+    @Autowired
+    EventValidator eventValidator;
     /*public EventController(EventRepository eventRepository, ModelMapper modelMapper){
         this.eventRepository = eventRepository;
         this.modelMapper = modelMapper;
@@ -33,7 +34,10 @@ public class EventController {
     public ResponseEntity createEvent(@RequestBody @Valid EventDto eventDto, Errors errors){
         if(errors.hasErrors()){
             return ResponseEntity.badRequest().build();
-
+        }
+        eventValidator.validate(eventDto,errors);
+        if(errors.hasErrors()){
+            return ResponseEntity.badRequest().build();
         }
         Event event = modelMapper.map(eventDto,Event.class);
         Event newEvent = this.eventRepository.save(event);
