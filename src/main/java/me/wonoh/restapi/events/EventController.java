@@ -1,6 +1,5 @@
 package me.wonoh.restapi.events;
 
-import org.dom4j.rule.Mode;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.MediaTypes;
@@ -18,7 +17,7 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 
 @Controller
 @RequestMapping(value = "api/events",produces = MediaTypes.HAL_JSON_UTF8_VALUE)
-public class EventController {
+public class EventController{
     @Autowired
     EventRepository eventRepository;
     @Autowired
